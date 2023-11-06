@@ -1,0 +1,39 @@
+:root{
+  --main-color-red: #D80032;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Poppins" , sans-serif;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr min(1440px, 94%) 1fr;
+  grid-template-rows: 96px 1fr 72px;
+}
+
+.container > * {
+  grid-column: 2;
+}
+
+.container > .fuild {
+  grid-column: 1 / -1;
+}
+
+.main-color-red{
+  color: var(--main-color-red);
+}
+
+header {
+  background: linear-gradient(180deg, black, transparent);
+}
+
+nav > a:hover {
+  color: var(--main-color-red);
+  transition: 200ms ease-in-out;
+}
