@@ -15,7 +15,6 @@ function MoviesSection({title, movies}: IMoviesSectionProps) {
             <Link href={`/movie/${movie.id}`}>
               <Image
                 fill
-                unoptimized
                 alt={movie.title}
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
               />
