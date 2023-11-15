@@ -16,7 +16,9 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="tr">
-      <body className={`container ${poppinsFontFamily.className}`}>
+      <body
+        className={`container ${poppinsFontFamily.className}`}
+        suppressHydrationWarning={true}>
         <Header />
         <main>{children}</main>
         <Footer />
