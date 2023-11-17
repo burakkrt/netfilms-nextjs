@@ -4,7 +4,7 @@ import Movies from './../../mocks/movies.json';
 
 import {IHomePageProps} from './types';
 
-export default function HomePage({params}: IHomePageProps) {
+function HomePage({params}: IHomePageProps) {
   let selectedCategory = false;
 
   if (params.category?.length > 0) {
@@ -20,3 +20,5 @@ export default function HomePage({params}: IHomePageProps) {
     />
   );
 }
+
+export default HomePage;
