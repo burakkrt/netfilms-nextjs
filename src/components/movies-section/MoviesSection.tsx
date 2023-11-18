@@ -17,6 +17,8 @@ function MoviesSection({title, movies}: IMoviesSectionProps) {
                 fill
                 alt={movie.title}
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                style={{objectFit: 'cover'}}
+                objectPosition="center"
               />
             </Link>
           </div>

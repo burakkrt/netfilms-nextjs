@@ -11,11 +11,15 @@ function HomePage({params}: IHomePageProps) {
     selectedCategory = true;
   }
 
+  const filterCategoryMovies = Movies.results.filter((movie) =>
+    movie.genre_ids.includes(+params.category?.[0])
+  );
+
   return (
     <HomeContainers
       selectedCategory={{
         id: params.category?.[0] ?? '',
-        movies: selectedCategory ? Movies.results.slice(0, 7) : [],
+        movies: selectedCategory ? filterCategoryMovies.slice(0, 6) : [],
       }}
     />
   );

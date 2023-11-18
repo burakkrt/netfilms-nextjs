@@ -10,6 +10,7 @@ const HomeContainers = ({selectedCategory}: IHomeContainersProps) => {
   const selectedGenre = Genres.genres.find(
     (genre) => genre.id.toString() === selectedCategory.id
   );
+
   return (
     <div>
       <FeaturedMovie movie={Movies.results[1]} />
