@@ -1,32 +1,46 @@
 import React from 'react';
 import FeaturedMovie from '@/components/featured-movie';
-import Movies from './../../mocks/movies.json';
-import Genres from './../../mocks/genres.json';
 import Categories from '@/components/categories/Categories';
 import MoviesSection from '@/components/movies-section/MoviesSection';
 import {IHomeContainersProps} from './types';
 
-import {getPopularMovies} from '@/services/movie';
+import {
+  getPopularMovies,
+  getTopRatedMovies,
+  getGenreMovies,
+  getGenreFilterMovies,
+} from '@/services/movie';
 
-const HomeContainers = async ({selectedCategory}: IHomeContainersProps) => {
-  const popularMovies = await getPopularMovies();
-
-  const selectedGenre = Genres.genres.find(
-    (genre) => genre.id.toString() === selectedCategory.id
-  );
+const HomeContainers = async ({selectedCategoryId}: IHomeContainersProps) => {
+  const [popularMovies, topRatedMovies, genreMovies, genreFilterMovies] =
+    await Promise.all([
+      getPopularMovies(),
+      getTopRatedMovies(),
+      getGenreMovies(),
+      getGenreFilterMovies(selectedCategoryId),
+    ]);
 
   return (
     <div>
-      <FeaturedMovie movie={Movies.results[1]} />
-      <Categories categories={Genres.genres.slice(0, 5)} />
-      {selectedCategory.movies.length > 0 && (
+      <FeaturedMovie movie={popularMovies.results[5]} />
+      <Categories categories={genreMovies.genres.slice(0, 5) || []} />
+      {selectedCategoryId !== 0 && genreFilterMovies.results.length > 0 && (
         <MoviesSection
-          title={selectedGenre?.name || ''}
-          movies={selectedCategory.movies}
+          title={
+            genreMovies.genres.find((genre) => genre.id === selectedCategoryId)?.name ||
+            ''
+          }
+          movies={genreFilterMovies.results.slice(0, 12)}
         />
       )}
-      <MoviesSection title="Populer Films" movies={popularMovies.results.slice(0, 6)} />
-      <MoviesSection title="Your Favorites" movies={Movies.results.slice(7, 13)} />
+      <MoviesSection
+        title="Popular Movies"
+        movies={popularMovies?.results.slice(0, 12) || []}
+      />
+      <MoviesSection
+        title="Top Rated Movies"
+        movies={topRatedMovies?.results.slice(0, 12) || []}
+      />
     </div>
   );
 };

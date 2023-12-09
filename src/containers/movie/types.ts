@@ -1,5 +1,5 @@
-import {IMovie} from '@/app/global/types';
+import {IMovieDetail} from '@/app/global/types';
 
 export interface IMovieContainerProps {
-  movie: IMovie;
+  movie: IMovieDetail;
 }

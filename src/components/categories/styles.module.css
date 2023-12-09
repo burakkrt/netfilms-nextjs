@@ -15,4 +15,5 @@
   height: 100%;
   border-radius: 6px;
   font-weight: 700;
+  min-width: 200px;
 }

@@ -3,14 +3,7 @@ import Link from 'next/link';
 
 function Movie404() {
   return (
-    <div
-      style={{
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-      }}>
+    <div className="flex h-full flex-col justify-center items-center">
       <h1 className="text-7xl">404 Not Found</h1>
       <h3 className="text-2xl mb-5">We couldn&apos;t find the movie you looking for!</h3>
       <Link

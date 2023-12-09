@@ -1,6 +1,6 @@
-import {IMovie} from '@app/global/types';
+import {IMovie, IMovieDetail} from '@app/global/types';
 
 export interface IFeaturedMovieProps {
-  movie: IMovie;
+  movie: IMovie | IMovieDetail;
   isCompact?: boolean;
 }
