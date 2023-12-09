@@ -25,7 +25,7 @@ const HomeContainers = async ({selectedCategory}: IHomeContainersProps) => {
           movies={selectedCategory.movies}
         />
       )}
-      <MoviesSection title="Populer Films" movies={popularMovies.results.slice(0, 7)} />
+      <MoviesSection title="Populer Films" movies={popularMovies.results.slice(0, 6)} />
       <MoviesSection title="Your Favorites" movies={Movies.results.slice(7, 13)} />
     </div>
   );
