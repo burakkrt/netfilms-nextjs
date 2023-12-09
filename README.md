@@ -2,7 +2,37 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### [Go Live](https://nextjs-netfilms.netlify.app)
 
+Source : 
+[The Movie Database - TMDB](https://developer.themoviedb.org/reference/intro/getting-started)
+
 ## Getting Started
+
+- create a file named .env in the root folder
+
+- If you do not have a TMDB membership, [sign up here](https://www.themoviedb.org/signup) to get an API Reading Access Token.
+
+- Generate your own key from [here](https://www.themoviedb.org/settings/api).
+
+
+- Paste your own API Read Access Token into the file.
+
+.env file :
+```bash
+API_BEARER=Bearer <API Read Access Token>
+```
+
+Example
+```bash
+API_BEARER=Bearer UzI1NiJ9.eyJhdWQM2MjQ3ZTAxZDJhbGciOiJkO...
+```
+
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
 
 First, run the development server:
 
@@ -36,3 +66,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Lisans
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+  
