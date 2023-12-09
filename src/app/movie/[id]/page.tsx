@@ -5,18 +5,10 @@ import MovieContainer from '@/containers/movie';
 
 import {getMovieDetail} from '@services/movie';
 
-async function MoviePage({params, searchParams}: any) {
+async function MoviePage({params}: any) {
   const movieDetail = await getMovieDetail(params.id);
 
-  if (searchParams.error === 'true') {
-    throw new Error('Something went wrong!');
-  }
-
-  console.log(movieDetail);
-
-  if (movieDetail.title) {
-    return <MovieContainer movie={movieDetail} />;
-  } else notFound();
+  return <MovieContainer movie={movieDetail} />;
 }
 
 export default MoviePage;
