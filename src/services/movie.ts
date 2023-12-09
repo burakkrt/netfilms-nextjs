@@ -40,7 +40,9 @@ export const getGenreFilterMovies = async (genreId: number) => {
 export const getMovieDetail = async (movieId: number) => {
   const res: IMovieDetail = await (
     await fetch(`${API_URL_MOVIE_DETAIL}/${movieId}`, fetchOptions)
-  ).json();
+  )
+    .json()
+    .catch((err) => console.error(err));
 
   return res;
 };

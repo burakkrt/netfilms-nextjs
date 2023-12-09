@@ -14,7 +14,7 @@ async function MoviePage({params, searchParams}: any) {
 
   console.log(movieDetail);
 
-  if (movieDetail) {
+  if (movieDetail.title) {
     return <MovieContainer movie={movieDetail} />;
   } else notFound();
 }

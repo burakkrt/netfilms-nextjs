@@ -30,16 +30,16 @@ const HomeContainers = async ({selectedCategoryId}: IHomeContainersProps) => {
             genreMovies.genres.find((genre) => genre.id === selectedCategoryId)?.name ||
             ''
           }
-          movies={genreFilterMovies.results.slice(0, 12)}
+          movies={genreFilterMovies.results.slice(0, 14)}
         />
       )}
       <MoviesSection
         title="Popular Movies"
-        movies={popularMovies?.results.slice(0, 12) || []}
+        movies={popularMovies?.results.slice(0, 14) || []}
       />
       <MoviesSection
         title="Top Rated Movies"
-        movies={topRatedMovies?.results.slice(0, 12) || []}
+        movies={topRatedMovies?.results.slice(0, 14) || []}
       />
     </div>
   );
