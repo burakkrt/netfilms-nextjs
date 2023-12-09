@@ -1,10 +1,13 @@
 import React from 'react';
 import HomeContainers from '@containers/home';
 import Movies from './../../mocks/movies.json';
+import {getPopularMovies} from '@services/movie';
 
 import {IHomePageProps} from './types';
 
-function HomePage({params}: IHomePageProps) {
+async function HomePage({params}: IHomePageProps) {
+  const popularMovies = await getPopularMovies();
+
   let selectedCategory = false;
 
   if (params.category?.length > 0) {
