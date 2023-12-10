@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ımageBlur from './image-blur.png';
 
 import styles from './styles.module.css';
 import {IMoviesSectionProps} from './types';
@@ -20,6 +21,8 @@ function MoviesSection({title, movies}: IMoviesSectionProps) {
                 style={{objectFit: 'cover'}}
                 objectPosition="center"
                 priority={true}
+                placeholder="blur"
+                blurDataURL={ımageBlur.src}
               />
             </Link>
           </div>
