@@ -5,6 +5,7 @@ export interface IPopularMovies {
   results: IMovie[];
   total_pages: number;
   total_results: number;
+  success?: boolean;
 }
 
 export interface ITopRatedMovies extends IPopularMovies {}

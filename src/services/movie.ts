@@ -10,9 +10,13 @@ import {IPopularMovies, ITopRatedMovies, IGenreMovies, IGenreFilterMovies} from 
 import {IMovieDetail} from '@app/global/types';
 
 export const getPopularMovies = async () => {
-  const res: IPopularMovies = await (await fetch(API_URL_POPULAR, fetchOptions)).json();
-
-  return res;
+  try {
+    const res: IPopularMovies = await (await fetch(API_URL_POPULAR, fetchOptions)).json();
+    if (res?.success && !res.success) throw new Error();
+    return res;
+  } catch (error: any) {
+    throw new Error(error);
+  }
 };
 
 export const getTopRatedMovies = async () => {

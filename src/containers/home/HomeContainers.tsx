@@ -22,24 +22,24 @@ const HomeContainers = async ({selectedCategoryId}: IHomeContainersProps) => {
 
   return (
     <div>
-      <FeaturedMovie movie={popularMovies.results[5]} />
-      <Categories categories={genreMovies.genres.slice(0, 5) || []} />
+      <FeaturedMovie movie={popularMovies?.results?.[5] || {}} />
+      <Categories categories={genreMovies?.genres?.slice(0, 5) || []} />
       {selectedCategoryId !== 0 && genreFilterMovies.results.length > 0 && (
         <MoviesSection
           title={
             genreMovies.genres.find((genre) => genre.id === selectedCategoryId)?.name ||
             ''
           }
-          movies={genreFilterMovies.results.slice(0, 14)}
+          movies={genreFilterMovies?.results?.slice(0, 14) || []}
         />
       )}
       <MoviesSection
         title="Popular Movies"
-        movies={popularMovies?.results.slice(0, 14) || []}
+        movies={popularMovies?.results?.slice(0, 14) || []}
       />
       <MoviesSection
         title="Top Rated Movies"
-        movies={topRatedMovies?.results.slice(0, 14) || []}
+        movies={topRatedMovies?.results?.slice(0, 14) || []}
       />
     </div>
   );
