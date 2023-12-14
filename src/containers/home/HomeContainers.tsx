@@ -22,7 +22,10 @@ const HomeContainers = async ({selectedCategoryId}: IHomeContainersProps) => {
 
   return (
     <div>
-      <FeaturedMovie movie={popularMovies?.results?.[5] || {}} />
+      {popularMovies?.results?.[5] && (
+        <FeaturedMovie movie={popularMovies?.results?.[5]} />
+      )}
+
       <Categories categories={genreMovies?.genres?.slice(0, 5) || []} />
       {selectedCategoryId !== 0 && genreFilterMovies.results.length > 0 && (
         <MoviesSection
