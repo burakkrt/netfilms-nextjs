@@ -9,7 +9,7 @@ import {IMoviesSectionProps} from './types';
 function MoviesSection({title, movies}: IMoviesSectionProps) {
   return (
     <div className={styles.moviesSection}>
-      <h3 className={styles.title}>{title}</h3>
+      <h3 className={styles.title}>{title.toLocaleUpperCase('en-US')}</h3>
       <div className={styles.movies}>
         {movies.map((movie) => (
           <div className={styles.movie} key={movie.id}>
